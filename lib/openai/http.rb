@@ -13,9 +13,9 @@ module OpenAI
     end
 
     def post(path:)
-      parse_jsonl(conn.post(uri(path: path)) do |req|
+      conn.post(uri(path: path)) do |req|
         req.headers = headers
-      end&.body)
+      end&.body
     end
 
     def json_post(path:, parameters:)
